@@ -1,0 +1,7 @@
+{
+  "name": "shipcsx",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

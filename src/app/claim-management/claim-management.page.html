@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tools"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Claims Management</ion-title>
+    <ion-buttons slot="primary">
+      <app-network-stats [online]="online$ | async"></app-network-stats>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3">
+        <ion-card routerDirection="forward" routerLink="new-freight-report">
+          <ion-card-header>
+            <ion-card-subtitle
+              >Report Lost or Damaged Freight</ion-card-subtitle
+            >
+          </ion-card-header>
+        </ion-card>
+        <ion-card routerDirection="forward" routerLink="freight-report-list">
+          <ion-card-header>
+            <ion-card-subtitle>Freight Reports</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

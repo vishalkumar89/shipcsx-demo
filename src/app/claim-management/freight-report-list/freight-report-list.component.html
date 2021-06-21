@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tools/claim-management"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Freight Reports</ion-title>
+    <ion-buttons slot="end">
+      <app-network-stats [online]="online$ | async"></app-network-stats>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3">
+        <ng-container *ngIf="freightReports$ | async as freightReports">
+          <ion-list *ngIf="freightReports.length > 0; else noReports">
+            <ion-item *ngFor="let report of freightReports">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-text class="text">Reason</ion-text>
+                  </ion-col>
+                  <ion-col>
+                    <ion-text color="medium" class="value">
+                      {{ report.reason | uppercase }}
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-text class="text">Damage Location</ion-text>
+                  </ion-col>
+                  <ion-col>
+                    <ion-text class="value">
+                      {{ report.damageLocation | uppercase }}
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-text class="text">Product Condition </ion-text>
+                  </ion-col>
+                  <ion-col>
+                    <ion-text class="value">
+                      {{ report.productCondition | uppercase }}
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="5">
+                    <ion-text class="text">Bracing Method </ion-text>
+                  </ion-col>
+                  <ion-col>
+                    <ion-text class="value">
+                      {{ report.bracingMethod | uppercase }}
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+          <ng-template #noReports>
+            <div class="ion-text-center no-reports">No Reports Available</div>
+          </ng-template>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

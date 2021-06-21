@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tools"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="primary">
+      <app-network-stats [online]="online$ | async"></app-network-stats>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-card class="ion-text-center">
+    <img src="/assets/logo/csx.png" alt="CSX" />
+    <ion-card-header>
+      <ion-card-subtitle>{{ title }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Construction in Progress. Please navigate to
+      <ion-router-link routerLink="/tools/claim-management"
+        >Claim Management</ion-router-link
+      >
+      for demo.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
